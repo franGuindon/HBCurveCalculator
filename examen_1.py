@@ -24,10 +24,11 @@ Ag = (x1 + lg)*(p + lg)
 # Magnetism derivations
 F = I*N 
 
-
 # Line
 def getBm(Hm):
-    return (Ag/Am)*mu0*(F-Hm*lm)/lg
+    Hg = (F-Hm*lm)/lg
+    Bg = mu0*Hg
+    return (Ag/Am)*Bg
 
 def getIntersection(x_vector, y_one, y_two):
     i = np.abs(y_one - y_two).argmin()
@@ -38,22 +39,14 @@ H_col, B_col = getData('iron_malleable.txt')
 
 x_values = np.arange(0,20000,0.1)
 y_line = getBm(x_values)
-y_curve = np.array([calcB(x, H_col, B_col, strategy=1) for x in x_values])
+y_curve = np.array([calcB(x, H_col, B_col, strategy=0) for x in x_values])
 
 Hm, Bm = getIntersection(x_values, y_line, y_curve)
 
-# plt.plot(H_col, B_col)
-plt.plot(x_values, y_line)
-plt.plot(x_values, y_curve)
-plt.plot(Hm, Bm, 'o')
-plt.text(Hm, Bm+0.15, f'$H_m = {Hm}\,Av/m$\n$B_m = {Bm:.3f}\,Wb/m^2$',
-         bbox = dict(boxstyle='square,pad=0.1',alpha=0.8,fc='white',ec='white'))
-plt.axis([0,8000,0,3])
-plt.legend(['Recta de carga','Curva de magentización'])
-plt.xlabel('$H_m\,[Av/m]$')
-plt.ylabel('$B_m\,[Wb/m^2]$')
-plt.grid(True)
-plt.show()
+Hg = (F-Hm*lm)/lg
+Bg = mu0*Hg
+phi = Bm*Am
+phi2 = Bg*Ag
 
 print(f'''Summary:
 lg = {lg}
@@ -66,4 +59,24 @@ lm = {lm}
 Am = {Am}
 Ag = {Ag}
 F = {F}
+Hm = {Hm}
+Bm = {Bm}
+Hg = {Hg}
+Bg = {Bg}
+phi = {phi}
+phi2 = {phi2}
 ''')
+
+
+plt.plot(x_values, y_line)
+plt.plot(x_values, y_curve)
+plt.plot(H_col, B_col, 'og')
+plt.plot(Hm, Bm, 'ok')
+plt.text(Hm, Bm+0.15, f'$H_m = {Hm}\,Av/m$\n$B_m = {Bm:.3f}\,Wb/m^2$',
+         bbox = dict(boxstyle='square,pad=0.1',alpha=0.8,fc='white',ec='white'))
+plt.axis([0,10000,0,2.5])
+plt.legend(['Recta de carga','Curva de magentización'])
+plt.xlabel('$H_m\,[Av/m]$')
+plt.ylabel('$B_m\,[Wb/m^2]$')
+plt.grid(True)
+plt.show()
