@@ -1,3 +1,25 @@
+'''
+Created by Francis Guindon 4 May 2021
+
+Special thanks to my classmate, Willian Baltodano, who taught me the
+method for finding the line equation and intersection method used
+in the examen_1.py.
+
+Special thanks to Luis León: lleon95.github.io
+for his splendid app which heavily influenced this library 
+and from which I borrowed some ideas (and the magnetization data).
+
+Special thanks to the fine people who developed the Newton
+Interpolation functions which I also borrowed from this link:
+ https://pythonnumericalmethods.berkeley.edu/notebooks/
+ chapter17.05-Newtons-Polynomial-Interpolation.html
+
+I have not attatched any licence, however feel free to use this
+however you seem fit (as long as I have not infringed copyright
+myself, which I guess I am not sure).
+
+'''
+
 import numpy as np
 
 def getData(filename):
