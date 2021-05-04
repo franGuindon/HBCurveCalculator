@@ -6,7 +6,7 @@ HBCurveCalculator is a python library used to compute magnetization curves for a
 Motivation
 ----------
 
-When studying magnetic circuits, it becomes crucial to have a simple way to calculate and manipulate values on the magnetization curve for different materials. As part of my Electronic Power Preprocessing class our teacher showed us [Luis León's simple and magnific web app](https://github.com/lleon95/lleon95.github.io). However, one of my assignements required a more detailed manipulation and modeling of the magnetization curve. This library has been the result of taking ideas from Luis León's implementation and other relevant ideas.
+When studying magnetic circuits, it becomes crucial to have a simple way to calculate and manipulate values on the magnetization curve for different materials. As part of my Electronic Power Preprocessing class our teacher showed us [Luis León's simple and magnific web app](https://lleon95.github.io/appHB/). However, one of my assignements required a more detailed manipulation and modeling of the magnetization curve. This library has been the result of taking ideas from Luis León's implementation and other relevant ideas.
 
 Installation
 ------------
