@@ -69,30 +69,3 @@ class TestCalculator(unittest.TestCase):
         y = calcB(x, H_col, B_col)
         
         self.assertAlmostEqual(round(y,3), 1.663)
-'''
-x_values = np.arange(0,18,1)
-y_values = np.multiply(x_values, x_values)
-y2_values = calcH(x_values, x_values, y_values)
-
-plt.plot(x_values, y_values)
-plt.plot(x_values, y2_values)
-    
-plt.show()
-'''
-
-    
-'''
-x = np.array([-5, -1, 0, 2, 6, 13])
-y = np.array([-2, 6, 1, 3, 9, 3])
-# get the divided difference coef
-a_s = divided_diff(x, y)[0, :]
-
-# evaluate on new data points
-x_new = np.arange(-5, 15, .1)
-y_new = newton_poly(a_s, x, x_new)
-
-plt.figure(figsize = (12, 8))
-plt.plot(x, y, 'bo')
-plt.plot(x_new, y_new)
-plt.show()
-'''
